@@ -1,5 +1,5 @@
 name: "extcheck: VS Code extension recommendations"
-description: "Check a repo's recommended VS Code extensions against Microsoft's block list, the Marketplace and Open VSX (unclaimed names in Cursor/VSCodium)"
+description: "Check a repo's recommended VS Code extensions against Microsoft's block list, the Marketplace and Open VSX"
 author: "Hieu Tran"
 branding:
   icon: "shield"
