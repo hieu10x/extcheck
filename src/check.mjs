@@ -146,7 +146,7 @@ export async function checkIds(ids, api, now = Date.now()) {
       if (o.namespaceExists === false) add("medium", "ovsx_unclaimed", `Not on Open VSX, and the namespace "${pub}" doesn't exist there. In Cursor, Windsurf or VSCodium this ID resolves to whoever publishes it first.`);
       else add("info", "ovsx_missing", "Not on Open VSX (the namespace exists and belongs to someone).");
     } else if (o.exists && o.verified === false) {
-      add("info", "ovsx_unverified", `On Open VSX, published by "${o.publishedBy}", who isn't a verified owner of the namespace: a different build from the Marketplace one.`);
+      add("info", "ovsx_unverified", `On Open VSX, published by "${o.publishedBy}", who isn't a verified owner of the namespace. Open VSX can't confirm it's the same publisher as on the Marketplace.`);
     }
     return { id, marketplace: m || null, openvsx: o, findings: f };
   });

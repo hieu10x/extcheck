@@ -2,7 +2,7 @@
   "name": "extcheck",
   "displayName": "extcheck: extension risk check",
   "description": "Check your installed extensions and your workspace's recommended extensions against Microsoft's block list, the VS Code Marketplace and Open VSX (names anyone could claim in Cursor, Windsurf or VSCodium).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "hieu10x",
   "license": "MIT",
   "repository": { "type": "git", "url": "https://github.com/hieu10x/extcheck" },
