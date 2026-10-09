@@ -153,7 +153,11 @@ export async function checkIds(ids, api, now = Date.now()) {
   return { rows, lists };
 }
 
-export function toMarkdown(rows, lists, source) {
+// `via` names the channel the report came from (vscode, action). It tags the footer links so a signup
+// can be traced to its channel; the links carry counts only, never the extension IDs.
+const WATCH_FORM = "https://tally.so/r/VLkrGa";
+
+export function toMarkdown(rows, lists, source, via = "") {
   const fs = rows.flatMap((r) => r.findings.map((x) => ({ ...x, id: r.id }))).sort((a, b) => SEV[b.sev] - SEV[a.sev]);
   const serious = fs.filter((x) => SEV[x.sev] >= 2);
   const L = [`# Extension check: ${source}`, "",
@@ -167,6 +171,17 @@ export function toMarkdown(rows, lists, source) {
     L.push(m ? `| \`${r.id}\` | ${m.publisher} | ${(m.updated || "").slice(0, 10)} | ${m.installs.toLocaleString("en")} | ${m.domainVerified ? "yes" : "no"} | ${ov} |`
       : `| \`${r.id}\` | not found | | | | ${ov} |`);
   }
-  L.push("", "Checked with extcheck (https://extcheck.pages.dev)");
+  if (!via) L.push("", "Checked with extcheck (https://extcheck.pages.dev)");
+  else {
+    const tag = (u, extra = {}) => {
+      const url = new URL(u);
+      Object.entries({ utm_source: via, utm_campaign: "report", ...extra }).forEach(([k, v]) => url.searchParams.set(k, v));
+      return url.toString();
+    };
+    const watch = tag(WATCH_FORM, { kind: via, n_ids: rows.length, n_findings: serious.length });
+    L.push("", "---", "",
+      `This was a one-off check. If you'd like an email when one of these extensions changes owner or publisher, ships a release right after a takeover, or gets flagged, join the early access list: [get early access](${watch}). The link sends only the counts above, not your extension IDs.`, "",
+      `Checked with extcheck ([extcheck.pages.dev](${tag("https://extcheck.pages.dev/")}))`);
+  }
   return L.join("\n") + "\n";
 }

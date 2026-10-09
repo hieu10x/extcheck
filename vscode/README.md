@@ -9,6 +9,6 @@ Each opens a Markdown report: anything on Microsoft's malicious or deprecated li
 
 It runs only when you call a command, and sends extension IDs only to the VS Code Marketplace, Open VSX and Microsoft's CDN. Nothing is stored or sent anywhere else.
 
-Same checks on the web: [extcheck.pages.dev](https://extcheck.pages.dev). Source and the GitHub Action: [github.com/hieu10x/extcheck](https://github.com/hieu10x/extcheck).
+Same checks on the web: [extcheck.pages.dev](https://extcheck.pages.dev/?utm_source=listing). Source and the GitHub Action: [github.com/hieu10x/extcheck](https://github.com/hieu10x/extcheck).
 
 Built by Hieu Tran with AI agents. MIT licensed.

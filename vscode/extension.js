@@ -1,5 +1,6 @@
 // extcheck for VS Code: runs only when you call one of its two commands. It sends extension IDs to the
-// VS Code Marketplace, Open VSX and Microsoft's block-list CDN, and nothing anywhere else.
+// VS Code Marketplace, Open VSX and Microsoft's block-list CDN, and nothing anywhere else. The report's
+// early-access link opens only if you click it, and carries counts, not IDs.
 const vscode = require("vscode");
 const path = require("path");
 const { pathToFileURL } = require("url");
@@ -17,7 +18,7 @@ async function run(ids, label) {
     async () => {
       const e = await engine();
       const { rows, lists } = await e.checkIds(ids, e.api);
-      return e.toMarkdown(rows, lists, label);
+      return e.toMarkdown(rows, lists, label, "vscode");
     });
   const doc = await vscode.workspace.openTextDocument({ content: md, language: "markdown" });
   await vscode.window.showTextDocument(doc, { preview: false });

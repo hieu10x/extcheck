@@ -12,7 +12,7 @@ Three ways to run it:
 
 | | Where | What it checks |
 |---|---|---|
-| Web | [extcheck.pages.dev](https://extcheck.pages.dev) | A pasted `code --list-extensions`, an extensions.json / devcontainer.json, or a public GitHub repo |
+| Web | [extcheck.pages.dev](https://extcheck.pages.dev/?utm_source=github) | A pasted `code --list-extensions`, an extensions.json / devcontainer.json, or a public GitHub repo |
 | GitHub Action | this repo (`uses: hieu10x/extcheck@v0`) | The repo's `.vscode/extensions.json` and devcontainer.json files, on every push or PR |
 | VS Code extension | [`vscode/`](vscode/) | Your installed extensions, or the open workspace's recommendations |
 

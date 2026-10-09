@@ -28,7 +28,7 @@ const idsByFile = Object.fromEntries(files.map((f) => [f, parseInput(readFileSyn
 const ids = [...new Set(Object.values(idsByFile).flat())].sort();
 const { rows, lists } = await checkIds(ids, nodeApi);
 
-const md = toMarkdown(rows, lists, `${process.env.GITHUB_REPOSITORY || "this repo"} (${files.join(", ")})`);
+const md = toMarkdown(rows, lists, `${process.env.GITHUB_REPOSITORY || "this repo"} (${files.join(", ")})`, "action");
 if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md);
 console.log(md);
 
