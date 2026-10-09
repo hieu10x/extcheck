@@ -1,0 +1,23 @@
+name: "extcheck: VS Code extension recommendations"
+description: "Check a repo's recommended VS Code extensions against Microsoft's block list, the Marketplace and Open VSX (unclaimed names in Cursor/VSCodium)"
+author: "Hieu Tran"
+branding:
+  icon: "shield"
+  color: "green"
+inputs:
+  fail-on:
+    description: "Fail the step at this severity or above: high, medium, low, or never"
+    required: false
+    default: "high"
+  files:
+    description: "Files to check, comma- or newline-separated. Default: .vscode/extensions.json and devcontainer.json files"
+    required: false
+    default: ""
+outputs:
+  findings:
+    description: "Number of findings at medium severity or above"
+  extensions:
+    description: "Number of extensions checked"
+runs:
+  using: "node24"
+  main: "action/index.mjs"

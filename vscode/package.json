@@ -1,0 +1,21 @@
+{
+  "name": "extcheck",
+  "displayName": "extcheck: extension risk check",
+  "description": "Check your installed extensions and your workspace's recommended extensions against Microsoft's block list, the VS Code Marketplace and Open VSX (names anyone could claim in Cursor, Windsurf or VSCodium).",
+  "version": "0.1.0",
+  "publisher": "hieu10x",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/hieu10x/extcheck" },
+  "homepage": "https://extcheck.pages.dev",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "keywords": ["security", "extensions", "supply chain", "open vsx", "audit"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "extcheck.checkInstalled", "title": "Check my installed extensions", "category": "extcheck" },
+      { "command": "extcheck.checkWorkspace", "title": "Check this workspace's recommended extensions", "category": "extcheck" }
+    ]
+  },
+  "scripts": { "vscode:prepublish": "node copy-engine.mjs" }
+}
