@@ -1,4 +1,4 @@
-# extcheck
+# <img src="logo/icon.svg" width="40" height="40" alt="" align="top"> extcheck
 
 Checks VS Code extension IDs against three public sources:
 

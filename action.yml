@@ -3,7 +3,7 @@ description: "Check a repo's recommended VS Code extensions against Microsoft's 
 author: "Hieu Tran"
 branding:
   icon: "shield"
-  color: "green"
+  color: "yellow"
 inputs:
   fail-on:
     description: "Fail the step at this severity or above: high, medium, low, or never"
